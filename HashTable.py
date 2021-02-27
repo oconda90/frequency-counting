@@ -78,7 +78,9 @@ class HashTable:
   # erase: 2
 
   def print_key_values(self):
-    pass
+    
+    for linked_list in self.arr:
+      linked_list.print_nodes()
 
 
 
