@@ -1,4 +1,3 @@
-# frequency-counting
 
 # Frequency Counter using Hash Tables
 
