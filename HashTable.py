@@ -33,7 +33,7 @@ class HashTable:
     ascii_value = ord(first_letter)
     index = ascii_value % self.size
 
-     return index
+    return index
 
 
   # 3️⃣ TODO: Complete the insert method.
@@ -41,27 +41,20 @@ class HashTable:
   # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
   def insert(self, key, value):
-    key_hash = self.hash_func(key)
 
-    if self.arr[key_hash] == None:
-      self.arr[key_hash] = (key, value)
-      return key_hash
+    # figure out what index to insert key and value 
+    # iterate through Linkedlist and find key
+    # if same key exist increase value 
+    #create touple according to find_update
+    #append if key isnt found
+    #
+    hash_key = self.hash_func(key)
+    new_ll = self.arr[hash_key].find_update(key)
 
-    else:
-      ptr = (key_hash + 1) % self.size
-
-      while ptr != key_hash:
-
-        if self.arr[ptr] == None:
-          self.arr[ptr] = (key, value)
-          return ptr
-
-        else:
-          ptr = (ptr + 1) % self.size
-        self.arr[key_hash].append((key,value))
-
-
-      return key_hash
+    item = (key, value)
+    
+    if new_ll == -1:
+      self.arr[hash_key].append(item)
 
 
 
